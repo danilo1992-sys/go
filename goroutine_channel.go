@@ -14,8 +14,9 @@ func main() {
 	// ejemplo 2
 	canal := make(chan string)
 	go func() {
-		canal < -retorno("hola")
+		canal <- retorno("hola")
 	}()
+	fmt.Println(<-canal)
 }
 
 func retorno(parametro string) string {
